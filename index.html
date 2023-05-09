@@ -57,18 +57,18 @@
 
         function game (){
             //while less than 5 rounds played, play a round and report player and computer scores. After 5 round, declare the winner.                  
-            while (roundCount < 5 ){
+            while (roundCount < 6 ){
                 console.log("Round " + roundCount);
                 console.log(playRound(playerSelection, computerSelection));
                 console.log("Player: " + playerScore + ", " + "Computer:" + computerScore);
                 ++roundCount;
             }
 
-            result();
+            console.log(result());
         }
 
         function result(){
-            if (roundCount == 5){
+            if (roundCount == 6){
                 if (playerScore > computerScore){
                     return "You win! Congratulations!";
                 }else if (playerScore < computerScore){
