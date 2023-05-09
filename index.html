@@ -22,6 +22,7 @@
 
         //compare player and computer selection and returns the winner of the round
         function playRound(playerSelection, computerSelection){
+            computerSelection = getComputerChoice();
             if (playerSelection == computerSelection) {
                 return "Draw!";
             }else if (playerSelection == "Rock") {
@@ -59,8 +60,7 @@
             while (roundCount < 5 ){
                 console.log("Round " + roundCount);
                 console.log(playRound(playerSelection, computerSelection));
-                console.log("Player: " + playerScore);
-                console.log("Computer:" + computerScore);
+                console.log("Player: " + playerScore + ", " + "Computer:" + computerScore);
                 ++roundCount;
             }
 
