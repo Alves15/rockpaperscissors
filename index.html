@@ -10,7 +10,7 @@
     <script>
         //Randomly generate a choice for the computer
         function getComputerChoice(){
-            let randomChoice = Math.floor((Math.random() * 3));
+            randomChoice = Math.floor((Math.random() * 3));
             if (randomChoice == 0) {
                 return "Rock";
             }else if (randomChoice == 1) {
@@ -22,34 +22,34 @@
 
         //compare player and computer selection and returns the winner of the round
         function playRound(playerSelection, computerSelection){
-            console.log(playerSelection);
-            console.log(computerSelection);
             if (playerSelection == computerSelection) {
                 return "Draw!";
             }else if (playerSelection == "Rock") {
                 if (computerSelection == "Paper") {
-                    return "You lose! Paper beats rock!";
                     ++computerScore;
-
+                    return "You lose! Paper beats rock!";
                 } else {
-                    return "You win! Rock beats scissor!";
                     ++playerScore;
+                    return "You win! Rock beats scissor!";
+                    
                 }
             }else if (playerSelection == "Paper") {
                 if (computerSelection == "Rock") {
-                    return "You win! Paper beats rock!";
                     ++playerScore;
+                    return "You win! Paper beats rock!";
+                    
                 } else {
-                    return "You lose! Scissor beats paper!";
                     ++computerScore;
+                    return "You lose! Scissor beats paper!";
+                    
                 }
             }else if (playerSelection == "Scissor") {
                 if (computerSelection == "Rock") {
-                    return "You lose! Rock beats scissor!";
                     ++computerScore;
+                    return "You lose! Rock beats scissor!";
                 } else {
-                    return "You win! Scissor beats paper!";
                     ++playerScore;
+                    return "You win! Scissor beats paper!";                   
                 }
             }
         }
@@ -64,6 +64,10 @@
                 ++roundCount;
             }
 
+            result();
+        }
+
+        function result(){
             if (roundCount == 5){
                 if (playerScore > computerScore){
                     return "You win! Congratulations!";
@@ -79,10 +83,10 @@
 
         let playerScore = 0;
         let computerScore = 0;
+        let randomChoice = 0;
         let roundCount = 1;
         const playerSelection = "Scissor";
         const computerSelection = getComputerChoice();
-        console.log(roundCount);
         game();
         
     </script>
