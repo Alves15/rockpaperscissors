@@ -22,8 +22,17 @@
 
         //returns prompted player's choice
         function getPlayerChoice(){
-            let playerChoice = prompt("rock, paper or scissor?");
+
+            let playerChoice = "roc";
+            
+            while (!(playerChoice  == "rock") && !(playerChoice  == "paper") && !(playerChoice  == "scissor")){
+                playerChoice = prompt("rock, paper or scisor?");
+                playerChoice = playerChoice.toLowerCase();
+                console.log(playerChoice);
+            }
+
             return playerChoice.toLowerCase();
+            
         }
 
         //takes player and computer selection, compare them and returns the winner of the round, if any.
