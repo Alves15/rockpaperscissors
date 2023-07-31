@@ -48,35 +48,35 @@
     function playRound(){
         // const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
-        console.log("Player selected " + playerSelection + ", Computer selected " + computerSelection);
+        const result = document.querySelector('.result');
         if (playerSelection == computerSelection) {
-            return "Draw!";
+            return result.textContent = "Draw!";
         }else if (playerSelection == "rock") {
             if (computerSelection == "paper") {
                 ++computerScore;
-                return "You lose! Paper beats rock!";
+                return result.textContent = "You lose! Paper beats rock!";
             } else {
                 ++playerScore;
-                return "You win! Rock beats scissor!";
+                return result.textContent = "You win! Rock beats scissor!";
                 
             }
         }else if (playerSelection == "paper") {
             if (computerSelection == "rock") {
                 ++playerScore;
-                return "You win! Paper beats rock!";
+                return result.textContent = "You win! Paper beats rock!";
                 
             } else {
                 ++computerScore;
-                return "You lose! Scissor beats paper!";
+                return result.textContent = "You lose! Scissor beats paper!";
                 
             }
         }else if (playerSelection == "scissor") {
             if (computerSelection == "rock") {
                 ++computerScore;
-                return "You lose! Rock beats scissor!";
+                return result.textContent = "You lose! Rock beats scissor!";
             } else {
                 ++playerScore;
-                return "You win! Scissor beats paper!";                   
+                return result.textContent = "You win! Scissor beats paper!";                   
             }
         }
     }
@@ -118,12 +118,12 @@
     let playerChoice = "";
     let playerSelection = "";
     const computerSelection = getComputerChoice();
-    
+
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             playerSelection = button.id;
-            console.log(playRound(playerSelection, computerSelection));
+            playRound(playerSelection, computerSelection);
         });
     });
 
