@@ -73,18 +73,17 @@
         }
 
         //while less than 5 rounds played, play a round and log player and computer scores. After 5 rounds, call result().
-        /*
+        
         function game (){                  
             while (roundCount < 6 ){
                 console.log("Round " + roundCount);
                 console.log(playRound(playerSelection, computerSelection));
                 console.log("Player: " + playerScore + ", " + "Computer:" + computerScore);
-                ++roundCount;
+                //++roundCount;
             }
 
             console.log(result());
         }
-        */
 
         //Called after loop inside game() ends. Returns the winner of the game.
         function result(){
@@ -109,7 +108,7 @@
         let roundCount = 1;
         const playerSelection = "";
         const computerSelection = getComputerChoice();
-        // game();
+        game();
         
     </script>
 </body>
