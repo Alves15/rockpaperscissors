@@ -42,9 +42,9 @@
 
     //takes player and computer selection, compare them and returns the winner of the round, if any.
     function playRound(){
-        const playerSelection = getPlayerChoice();
+        // const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
-        console.log("Player selected " + playerSelection);
+        console.log("Player selected " + playerSelection + ", Computer selected " + computerSelection);
         if (playerSelection == computerSelection) {
             return "Draw!";
         }else if (playerSelection == "rock") {
@@ -105,18 +105,23 @@
         roundCount = 1;
     }
 
-    const rock = document.querySelector('#rock');
-    rock.addEventListener('click', () => {
-        alert("Hello World");
-    });        
+         
 
     let playerScore = 0;
     let computerScore = 0;
     let randomChoice = 0;
     let roundCount = 1;
-    const playerSelection = "";
+    let playerChoice = "";
+    let playerSelection = "";
     const computerSelection = getComputerChoice();
-    //game();
+    
+    const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+        playerSelection = "rock";        
+        console.log(playRound(playerSelection, computerSelection));
+    });   
+    
+
     
 </script>
 
