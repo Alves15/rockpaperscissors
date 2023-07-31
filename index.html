@@ -12,7 +12,8 @@
         <button id="paper">Paper</button>
         <button id="scissor">Scissor</button>
     </div>
-    
+    Player: <div class="player-score"></div>
+    Computer: <div class="computer-score"></div>
     <div class="result"></div>
 </body>
 
@@ -53,29 +54,29 @@
             return result.textContent = "Draw!";
         }else if (playerSelection == "rock") {
             if (computerSelection == "paper") {
-                ++computerScore;
+                cpscore.textContent = ++computerScore;
                 return result.textContent = "You lose! Paper beats rock!";
             } else {
-                ++playerScore;
+                pscore.textContent = ++playerScore;
                 return result.textContent = "You win! Rock beats scissor!";
                 
             }
         }else if (playerSelection == "paper") {
             if (computerSelection == "rock") {
-                ++playerScore;
+                pscore.textContent = ++playerScore;
                 return result.textContent = "You win! Paper beats rock!";
                 
             } else {
-                ++computerScore;
+                cpscore.textContent = ++computerScore;
                 return result.textContent = "You lose! Scissor beats paper!";
                 
             }
         }else if (playerSelection == "scissor") {
             if (computerSelection == "rock") {
-                ++computerScore;
+                cpscore.textContent = ++computerScore;
                 return result.textContent = "You lose! Rock beats scissor!";
             } else {
-                ++playerScore;
+                pscore.textContent = ++playerScore;
                 return result.textContent = "You win! Scissor beats paper!";                   
             }
         }
@@ -117,8 +118,13 @@
     let roundCount = 1;
     let playerChoice = "";
     let playerSelection = "";
-    const computerSelection = getComputerChoice();
 
+    const pscore = document.querySelector('.player-score');
+    pscore.textContent = playerScore;
+    const cpscore = document.querySelector('.computer-score');
+    cpscore.textContent = computerScore;
+
+    const computerSelection = getComputerChoice();
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
