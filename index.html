@@ -7,13 +7,16 @@
     <title>Rock Paper Scissor</title>
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissor</button>
+    <div class="btn-container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissor</button>
+    </div>
+    
+    <div class="result"></div>
 </body>
 
 <script>
-    //Randomly generate a choice for the computer
     function getComputerChoice(){
         randomChoice = Math.floor((Math.random() * 3));
         if (randomChoice == 0) {
@@ -25,7 +28,7 @@
         }
     }
 
-    //returns prompted player's choice
+    /*
     function getPlayerChoice(){
 
         let playerChoice = "roc";
@@ -39,6 +42,7 @@
         return playerChoice.toLowerCase();
         
     }
+    */
 
     //takes player and computer selection, compare them and returns the winner of the round, if any.
     function playRound(){
@@ -78,7 +82,7 @@
     }
 
     //while less than 5 rounds played, play a round and log player and computer scores. After 5 rounds, call result().
-    
+    /*
     function game (){                  
         while (roundCount < 6 ){
             console.log("Round " + roundCount);
@@ -104,7 +108,7 @@
 
         roundCount = 1;
     }
-
+    */
          
 
     let playerScore = 0;
@@ -115,14 +119,14 @@
     let playerSelection = "";
     const computerSelection = getComputerChoice();
     
-    const rock = document.querySelector('#rock');
-    rock.addEventListener('click', () => {
-        playerSelection = "rock";        
-        console.log(playRound(playerSelection, computerSelection));
-    });   
-    
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            playerSelection = button.id;
+            console.log(playRound(playerSelection, computerSelection));
+        });
+    });
 
-    
 </script>
 
 </html>
