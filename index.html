@@ -14,7 +14,7 @@
     </div>
     Player: <div class="player-score"></div>
     Computer: <div class="computer-score"></div>
-    <div class="result"></div>
+    Result: <div class="result"></div>
 </body>
 
 <script>
@@ -47,7 +47,6 @@
 
     //takes player and computer selection, compare them and returns the winner of the round, if any.
     function playRound(){
-        // const playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         const result = document.querySelector('.result');
         if (playerSelection == computerSelection) {
@@ -55,19 +54,38 @@
         }else if (playerSelection == "rock") {
             if (computerSelection == "paper") {
                 cpscore.textContent = ++computerScore;
-                return result.textContent = "You lose! Paper beats rock!";
+                if (computerScore > 4){
+                    return result.textContent = "You lose!";
+                }else {
+                    return result.textContent = "You lose! Paper beats rock!";
+                }
+                
             } else {
                 pscore.textContent = ++playerScore;
-                return result.textContent = "You win! Rock beats scissor!";
+                if (playerScore > 4){
+                    return result.textContent = "You are the winner!";
+                }else {
+                    return result.textContent = "You win! Rock beats scissor!";
+                }
                 
             }
         }else if (playerSelection == "paper") {
             if (computerSelection == "rock") {
                 pscore.textContent = ++playerScore;
-                return result.textContent = "You win! Paper beats rock!";
+                if (playerScore > 4){
+                    return result.textContent = "You are the winner!";
+                }else {
+                    return result.textContent = "You win! Paper beats rock!";
+                }
+                
                 
             } else {
                 cpscore.textContent = ++computerScore;
+                if (computerScore > 4){
+                    return result.textContent = "You lose!";
+                }else {
+                    return result.textContent = "You lose! Paper beats rock!";
+                }
                 return result.textContent = "You lose! Scissor beats paper!";
                 
             }
@@ -77,45 +95,19 @@
                 return result.textContent = "You lose! Rock beats scissor!";
             } else {
                 pscore.textContent = ++playerScore;
-                return result.textContent = "You win! Scissor beats paper!";                   
+                if (playerScore > 4){
+                    return result.textContent = "You are the winner!";
+                }else {
+                    return result.textContent = "You win! Scissor beats paper!";   
+                }
+                               
             }
         }
     }
-
-    //while less than 5 rounds played, play a round and log player and computer scores. After 5 rounds, call result().
-    /*
-    function game (){                  
-        while (roundCount < 6 ){
-            console.log("Round " + roundCount);
-            console.log(playRound(playerSelection, computerSelection));
-            console.log("Player: " + playerScore + ", " + "Computer:" + computerScore);
-            //++roundCount;
-        }
-
-        console.log(result());
-    }
-
-    //Called after loop inside game() ends. Returns the winner of the game.
-    function result(){
-        if (roundCount == 6){
-            if (playerScore > computerScore){
-                return "You win! Congratulations!";
-            }else if (playerScore < computerScore){
-                return "You lose! Try again!";
-            }else if (playerScore == computerScore){
-                return "It's a draw! Try again!";
-            }
-        }
-
-        roundCount = 1;
-    }
-    */
-         
 
     let playerScore = 0;
     let computerScore = 0;
     let randomChoice = 0;
-    let roundCount = 1;
     let playerChoice = "";
     let playerSelection = "";
 
@@ -129,7 +121,10 @@
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             playerSelection = button.id;
-            playRound(playerSelection, computerSelection);
+            if (playerScore < 5 && computerScore < 5){
+                playRound(playerSelection, computerSelection);
+            }
+            
         });
     });
 
